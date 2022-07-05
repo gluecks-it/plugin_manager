@@ -5,18 +5,18 @@ import re, ast
 with open("requirements.txt") as f:
 	install_requires = f.read().strip().split("\n")
 
-# get version from __version__ variable in bench_manager/__init__.py
+# get version from __version__ variable in plugin_manager/__init__.py
 _version_re = re.compile(r"__version__\s+=\s+(.*)")
 
-with open("bench_manager/__init__.py", "rb") as f:
+with open("plugin_manager/__init__.py", "rb") as f:
 	version = str(ast.literal_eval(_version_re.search(f.read().decode("utf-8")).group(1)))
 
 setup(
-	name="bench_manager",
+	name="plugin_manager",
 	version=version,
 	description="GUI for using bench commands ",
-	author="Frappe",
-	author_email="info@frappe.io",
+	author="Jörg Stemmer/Frappe",
+	author_email="info@gluecks-it.de",
 	packages=find_packages(),
 	zip_safe=False,
 	include_package_data=True,

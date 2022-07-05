@@ -5,7 +5,7 @@ frappe.ui.form.on('Site Backup', {
 	refresh: function(frm) {
 		frm.add_custom_button(__('Restore'), function(){
 			frappe.call({
-				method: 'bench_manager.bench_manager.doctype.site_backup.site_backup.get_restore_options',
+				method: 'plugin_manager.plugin_manager.doctype.site_backup.site_backup.get_restore_options',
 				args: {
 					doctype: frm.doctype,
 					docname: frm.doc.name
@@ -34,7 +34,7 @@ frappe.ui.form.on('Site Backup', {
 					});
 					dialog_data.set_primary_action(__("Verify"), () => {
 						frappe.call({
-							method: 'bench_manager.bench_manager.doctype.site.site.pass_exists',
+							method: 'plugin_manager.plugin_manager.doctype.site.site.pass_exists',
 							args: {
 								doctype: frm.doctype,
 								docname: dialog_data.fields_dict.on_a_new_site.last_value != 1 ? '' : dialog_data.fields_dict.existing_sites.get_input_value()
@@ -55,7 +55,7 @@ frappe.ui.form.on('Site Backup', {
 								});
 								verification_dialog.set_primary_action(__("Restore"), () => {
 									frappe.call({
-										method: 'bench_manager.bench_manager.doctype.site.site.verify_password',
+										method: 'plugin_manager.plugin_manager.doctype.site.site.verify_password',
 										args: {
 											site_name: dialog_data.fields_dict.on_a_new_site.last_value != 1 ? '' : dialog_data.fields_dict.existing_sites.get_input_value(),
 											mysql_password: verification_dialog.fields_dict.mysql_password.value
@@ -65,7 +65,7 @@ frappe.ui.form.on('Site Backup', {
 												let key = frappe.datetime.get_datetime_as_string();
 												console_dialog(key);
 												frappe.call({
-													method: 'bench_manager.bench_manager.doctype.site_backup.site_backup.restore_backup',
+													method: 'plugin_manager.plugin_manager.doctype.site_backup.site_backup.restore_backup',
 													args: {
 														doctype: frm.doctype,
 														docname: frm.doc.name,

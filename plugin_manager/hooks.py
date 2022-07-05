@@ -1,20 +1,20 @@
 from . import __version__ as app_version
 
-app_name = "bench_manager"
-app_title = "Bench Manager"
-app_publisher = "Frappe"
+app_name = "plugin_manager"
+app_title = "Plugin Manager"
+app_publisher = "Joerg Stemmer"
 app_description = "GUI for using bench commands "
 app_icon = "fa fa-gamepad"
 app_color = "grey"
-app_email = "info@frappe.io"
+app_email = "info@gluecks-it.de"
 app_license = "MIT"
 
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
-app_include_css = "/assets/bench_manager/css/bench_manager.css"
-app_include_js = "/assets/bench_manager/js/bench_manager.js"
+app_include_css = "/assets/plugin_manager/css/plugin_manager.css"
+app_include_js = "/assets/plugin_manager/js/plugin_manager.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/bench_manager/css/bench_manager.css"

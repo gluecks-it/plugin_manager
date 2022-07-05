@@ -81,7 +81,7 @@ frappe.ui.form.on('Site', {
 		});
 		frm.add_custom_button(__("Reinstall"), function(){
 			frappe.call({
-				method: 'bench_manager.bench_manager.doctype.site.site.pass_exists',
+				method: 'plugin_manager.plugin_manager.doctype.site.site.pass_exists',
 				args: {
 					doctype: frm.doctype,
 					docname: frm.doc.name
@@ -114,7 +114,7 @@ frappe.ui.form.on('Site', {
 		});
 		frm.add_custom_button(__('Install App'), function(){
 			frappe.call({
-				method: 'bench_manager.bench_manager.doctype.site.site.get_installable_apps',
+				method: 'plugin_manager.plugin_manager.doctype.site.site.get_installable_apps',
 				args: {
 					doctype: frm.doctype,
 					docname: frm.doc.name
@@ -144,7 +144,7 @@ frappe.ui.form.on('Site', {
 		});
 		frm.add_custom_button(__('Uninstall App'), function(){
 			frappe.call({
-				method: 'bench_manager.bench_manager.doctype.site.site.get_removable_apps',
+				method: 'plugin_manager.plugin_manager.doctype.site.site.get_removable_apps',
 				args: {
 					doctype: frm.doctype,
 					docname: frm.doc.name
@@ -174,7 +174,7 @@ frappe.ui.form.on('Site', {
 		});
 		frm.add_custom_button(__('Drop Site'), function(){
 			frappe.call({
-				method: 'bench_manager.bench_manager.doctype.site.site.pass_exists',
+				method: 'plugin_manager.plugin_manager.doctype.site.site.pass_exists',
 				args: {
 					doctype: frm.doctype,
 					docname: frm.doc.name
@@ -196,7 +196,7 @@ frappe.ui.form.on('Site', {
 					dialog.set_primary_action(__("Drop"), () => {
 						let key = frappe.datetime.get_datetime_as_string();
 						frappe.call({
-							method: 'bench_manager.bench_manager.doctype.site.site.verify_password',
+							method: 'plugin_manager.plugin_manager.doctype.site.site.verify_password',
 							args: {
 								site_name: frm.doc.name,
 								mysql_password: dialog.fields_dict.mysql_password.value

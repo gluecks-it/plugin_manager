@@ -1,11 +1,11 @@
 # Bench Manager
-<img src="bench_manager/public/images/fa-gamepad.svg" width="250">
+<img src="plugin_manager/public/images/fa-gamepad.svg" width="250">
 
 Bench Manager is a graphical user interface to emulate the functionalities of Frappé Bench. Like the command line utility it helps you install apps, manage multiple sites, update apps and much more.
 
 ## Installation
 
-Create a new site called bench-manager.local and install Bench Manager on the site. 
+Create a new site called bench-manager.local and install Plugin Manager on the site. 
 
 ### Automated (preferred)
 
@@ -14,15 +14,15 @@ $ bench setup manager
 ```
 What all it does:
 1. Create new site bench-manager.local
-2. Gets the `bench_manager` app from https://github.com/frappe/bench_manager if it doesn't exist already
-3. Installs the bench_manager app on the site bench-manager.local
+2. Gets the `plugin_manager` app from https://github.com/gluecks-it/plugin_manager.git if it doesn't exist already
+3. Installs the plugin_manager app on the site bench-manager.local
 
 ### Manual
 
 ```
-$ bench new-site bench-manager.local
-$ bench get-app bench_manager
-$ bench --site bench-manager.local install-app bench_manager
+$ bench new-site plugin_manager.local
+$ bench get-app plugin_manager https://github.com/gluecks-it/plugin_manager.git --branch version-13
+$ bench --site plugin_manager.local install-app plugin_manager
 ```
 ## Update
 

@@ -6,11 +6,11 @@ from frappe import _
 def get_data():
 	return [
 		{
-			"module_name": "Bench Manager",
+			"module_name": "Plugin Manager",
 			"color": "black",
 			"icon": "fa fa-gamepad",
 			"type": "module",
-			"label": _("Bench Manager"),
+			"label": _("Plugin Manager"),
 			"link": "Form/Bench Settings",
 		}
 	]

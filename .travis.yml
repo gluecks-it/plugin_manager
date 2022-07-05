@@ -43,7 +43,7 @@ before_script:
   - echo "USE mysql;\nGRANT ALL PRIVILEGES ON \`test_frappe\`.* TO 'test_frappe'@'localhost';\n" | mysql -u root -ptravis
 
   - cd ~/frappe-bench
-  - bench get-app bench_manager $TRAVIS_BUILD_DIR
+  - bench get-app plugin_manager $TRAVIS_BUILD_DIR
   - bench reinstall --yes
   - bench build
   - bench scheduler disable
@@ -57,4 +57,4 @@ script:
   - bench reinstall --yes
   - bench execute erpnext.setup.setup_wizard.utils.complete
   - bench execute erpnext.setup.utils.enable_all_roles_and_domains
-  - bench --site sitename run-ui-tests --app bench_manager
+  - bench --site sitename run-ui-tests --app plugin_manager

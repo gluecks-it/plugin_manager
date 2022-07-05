@@ -39,7 +39,7 @@ frappe.ui.form.on('Bench Settings', {
 		});
 		frm.add_custom_button(__('New Site'), function(){
 			frappe.call({
-				method: 'bench_manager.bench_manager.doctype.site.site.pass_exists',
+				method: 'plugin_manager.plugin_manager.doctype.site.site.pass_exists',
 				args: {
 					doctype: frm.doctype
 				},
@@ -67,7 +67,7 @@ frappe.ui.form.on('Bench Settings', {
 							install_erpnext = "true";
 						}
 						frappe.call({
-							method: 'bench_manager.bench_manager.doctype.site.site.verify_password',
+							method: 'plugin_manager.plugin_manager.doctype.site.site.verify_password',
 							args: {
 								site_name: dialog.fields_dict.site_name.value,
 								mysql_password: dialog.fields_dict.mysql_password.value
@@ -76,7 +76,7 @@ frappe.ui.form.on('Bench Settings', {
 								if (r.message == "console"){
 									console_dialog(key);
 									frappe.call({
-										method: 'bench_manager.bench_manager.doctype.site.site.create_site',
+										method: 'plugin_manager.plugin_manager.doctype.site.site.create_site',
 										args: {
 											site_name: dialog.fields_dict.site_name.value,
 											admin_password: dialog.fields_dict.admin_password.value,
@@ -104,7 +104,7 @@ frappe.ui.form.on('Bench Settings', {
 		});
 		frm.add_custom_button(__('Sync'), () => {
 			frappe.call({
-				method: 'bench_manager.bench_manager.doctype.bench_settings.bench_settings.sync_all'
+				method: 'plugin_manager.plugin_manager.doctype.bench_settings.bench_settings.sync_all'
 			});
 		});
 	}

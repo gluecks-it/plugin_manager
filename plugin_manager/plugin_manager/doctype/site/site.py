@@ -12,7 +12,7 @@ from subprocess import PIPE, Popen, check_output
 
 import frappe
 import pymysql
-from bench_manager.bench_manager.utils import (
+from plugin_manager.plugin_manager.utils import (
 	safe_decode,
 	verify_whitelisted_call,
 )
@@ -202,7 +202,7 @@ class Site(Document):
 			],
 		}
 		frappe.enqueue(
-			"bench_manager.bench_manager.utils.run_command",
+			"plugin_manager.plugin_manager.utils.run_command",
 			commands=commands[caller],
 			doctype=self.doctype,
 			key=key,
@@ -295,7 +295,7 @@ def create_site(site_name, install_erpnext, mysql_password, admin_password, key)
 			"bench --site {site_name} install-app erpnext".format(site_name=site_name)
 		)
 	frappe.enqueue(
-		"bench_manager.bench_manager.utils.run_command",
+		"plugin_manager.plugin_manager.utils.run_command",
 		commands=commands,
 		doctype="Bench Settings",
 		key=key,

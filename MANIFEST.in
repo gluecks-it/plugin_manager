@@ -4,15 +4,15 @@ include *.json
 include *.md
 include *.py
 include *.txt
-recursive-include bench_manager *.css
-recursive-include bench_manager *.csv
-recursive-include bench_manager *.html
-recursive-include bench_manager *.ico
-recursive-include bench_manager *.js
-recursive-include bench_manager *.json
-recursive-include bench_manager *.md
-recursive-include bench_manager *.png
-recursive-include bench_manager *.py
-recursive-include bench_manager *.svg
-recursive-include bench_manager *.txt
-recursive-exclude bench_manager *.pyc
+recursive-include plugin_manager *.css
+recursive-include plugin_manager *.csv
+recursive-include plugin_manager *.html
+recursive-include plugin_manager *.ico
+recursive-include plugin_manager *.js
+recursive-include plugin_manager *.json
+recursive-include plugin_manager *.md
+recursive-include plugin_manager *.png
+recursive-include plugin_manager *.py
+recursive-include plugin_manager *.svg
+recursive-include plugin_manager *.txt
+recursive-exclude plugin_manager *.pyc

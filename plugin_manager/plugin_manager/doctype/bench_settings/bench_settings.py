@@ -10,7 +10,7 @@ import time
 from subprocess import PIPE, Popen, check_output
 
 import frappe
-from bench_manager.bench_manager.utils import (
+from plugin_manager.plugin_manager.utils import (
 	safe_decode,
 	verify_whitelisted_call,
 )
@@ -84,7 +84,7 @@ class BenchSettings(Document):
 			"get-app": ["bench get-app {app_name}".format(app_name=app_name)],
 		}
 		frappe.enqueue(
-			"bench_manager.bench_manager.utils.run_command",
+			"plugin_manager.plugin_manager.utils.run_command",
 			commands=commands[caller],
 			doctype=self.doctype,
 			key=key,
@@ -290,13 +290,13 @@ def sync_all(in_background=False):
 		frappe.msgprint("Sync has started and will run in the background...")
 	verify_whitelisted_call()
 	frappe.enqueue(
-		"bench_manager.bench_manager.doctype.bench_settings.bench_settings.sync_sites"
+		"plugin_manager.plugin_manager.doctype.bench_settings.bench_settings.sync_sites"
 	)
 	frappe.enqueue(
-		"bench_manager.bench_manager.doctype.bench_settings.bench_settings.sync_apps"
+		"plugin_manager.plugin_manager.doctype.bench_settings.bench_settings.sync_apps"
 	)
 	frappe.enqueue(
-		"bench_manager.bench_manager.doctype.bench_settings.bench_settings.sync_backups"
+		"plugin_manager.plugin_manager.doctype.bench_settings.bench_settings.sync_backups"
 	)
 	frappe.set_value(
 		"Bench Settings", None, "last_sync_timestamp", frappe.utils.time.time()

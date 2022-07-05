@@ -8,7 +8,7 @@ import shlex
 from subprocess import check_output
 
 import frappe
-from bench_manager.bench_manager.utils import verify_whitelisted_call
+from plugin_manager.plugin_manager.utils import verify_whitelisted_call
 from frappe.model.document import Document
 
 
@@ -108,7 +108,7 @@ def restore_backup(
 	command += " {password_suffix}".format(password_suffix=password_suffix)
 	commands.append(command)
 	frappe.enqueue(
-		"bench_manager.bench_manager.utils.run_command",
+		"plugin_manager.plugin_manager.utils.run_command",
 		commands=commands,
 		doctype=doctype,
 		key=key,

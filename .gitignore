@@ -3,4 +3,4 @@
 *.egg-info
 *.swp
 tags
-bench_manager/docs/current
+plugin_manager/docs/current

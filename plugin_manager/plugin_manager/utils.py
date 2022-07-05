@@ -70,7 +70,7 @@ def run_command(commands, doctype, key, cwd="..", docname=" ", after_command=Non
 		# hack: frappe.db.commit() to make sure the log created is robust,
 		# and the _refresh throws an error if the doc is deleted
 		frappe.enqueue(
-			"bench_manager.bench_manager.utils._refresh",
+			"plugin_manager.plugin_manager.utils._refresh",
 			doctype=doctype,
 			docname=docname,
 			commands=commands,
@@ -105,7 +105,7 @@ def _refresh(doctype, docname, commands):
 
 @frappe.whitelist()
 def verify_whitelisted_call():
-	if "bench_manager" not in frappe.get_installed_apps():
+	if "plugin_manager" not in frappe.get_installed_apps():
 		raise ValueError("This site does not have bench manager installed.")
 
 

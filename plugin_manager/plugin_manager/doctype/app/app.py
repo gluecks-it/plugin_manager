@@ -10,7 +10,7 @@ import time
 from subprocess import PIPE, STDOUT, Popen, check_output
 
 import frappe
-from bench_manager.bench_manager.utils import (
+from plugin_manager.plugin_manager.utils import (
 	safe_decode,
 	verify_whitelisted_call,
 )
@@ -158,7 +158,7 @@ class App(Document):
 			"apply-stash": ["git stash apply"],
 		}
 		frappe.enqueue(
-			"bench_manager.bench_manager.utils.run_command",
+			"plugin_manager.plugin_manager.utils.run_command",
 			commands=commands[caller],
 			cwd=os.path.join("..", "apps", self.name),
 			doctype=self.doctype,

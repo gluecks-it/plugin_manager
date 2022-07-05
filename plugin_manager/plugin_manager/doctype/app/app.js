@@ -65,7 +65,7 @@ frappe.ui.form.on('App', {
 			});
 			frm.add_custom_button(__('Pull & Rebase'), function(){
 				frappe.call({
-					method: 'bench_manager.bench_manager.doctype.app.app.get_remotes',
+					method: 'plugin_manager.plugin_manager.doctype.app.app.get_remotes',
 					args: {
 						docname: frm.doc.name,
 					},
@@ -93,7 +93,7 @@ frappe.ui.form.on('App', {
 			});
 			frm.add_custom_button(__('Track Remote'), function(){
 				frappe.call({
-					method: 'bench_manager.bench_manager.doctype.app.app.get_remotes',
+					method: 'plugin_manager.plugin_manager.doctype.app.app.get_remotes',
 					args: {
 						docname: frm.doc.name,
 					},
@@ -124,7 +124,7 @@ frappe.ui.form.on('App', {
 			});
 			frm.add_custom_button(__('Switch Branch'), function(){
 				frappe.call({
-					method: 'bench_manager.bench_manager.doctype.app.app.get_branches',
+					method: 'plugin_manager.plugin_manager.doctype.app.app.get_branches',
 					args: {
 						doctype: frm.doctype,
 						docname: frm.doc.name,
@@ -178,7 +178,7 @@ frappe.ui.form.on('App', {
 			});
 			frm.add_custom_button(__('Delete Branch'), function(){
 				frappe.call({
-					method: 'bench_manager.bench_manager.doctype.app.app.get_branches',
+					method: 'plugin_manager.plugin_manager.doctype.app.app.get_branches',
 					args: {
 						doctype: frm.doctype,
 						docname: frm.doc.name,
