@@ -27,6 +27,8 @@ class Site(Document):
 		"db_password",
 		"developer_mode",
 		"disable_website_cache" "limits",
+		"error_report_email",
+		"host_name",
 	]
 	limits_fields = ["emails", "expiry", "space", "space_usage"]
 	space_usage_fields = ["backup_size", "database_size", "files_size", "total"]
@@ -109,6 +111,8 @@ class Site(Document):
 			"pause_scheduler",
 			"developer_mode",
 			"disable_website_cache",
+			"error_report_email",
+			"host_name",
 		]
 
 		for site_config_field in editable_site_config_fields:

@@ -1367,7 +1367,7 @@
  "max_attachments": 0, 
  "modified": "2017-09-25 02:30:28.788340", 
  "modified_by": "Administrator", 
- "module": "Bench Manager", 
+ "module": "Plugin Manager", 
  "name": "Bench Settings", 
  "name_case": "", 
  "owner": "Administrator", 

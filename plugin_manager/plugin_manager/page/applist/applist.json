@@ -1,0 +1,24 @@
+{
+ "content": null,
+ "creation": "2022-07-10 06:33:36.534431",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2022-07-10 06:35:58.024998",
+ "modified_by": "Administrator",
+ "module": "Plugin Manager",
+ "name": "applist",
+ "owner": "Administrator",
+ "page_name": "applist",
+ "restrict_to_domain": "",
+ "roles": [
+  {
+   "role": "Administrator"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Applist from Internet"
+}

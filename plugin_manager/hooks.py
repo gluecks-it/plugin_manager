@@ -17,8 +17,8 @@ app_include_css = "/assets/plugin_manager/css/plugin_manager.css"
 app_include_js = "/assets/plugin_manager/js/plugin_manager.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/bench_manager/css/bench_manager.css"
-# web_include_js = "/assets/bench_manager/js/bench_manager.js"
+# web_include_css = "/assets/plugin_manager/css/plugin_manager.css"
+# web_include_js = "/assets/plugin_manager/js/plugin_manager.js"
 
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
@@ -41,7 +41,7 @@ app_include_js = "/assets/plugin_manager/js/plugin_manager.js"
 # }
 
 # Website user home page (by function)
-# get_website_user_home_page = "bench_manager.utils.get_home_page"
+# get_website_user_home_page = "plugin_manager.utils.get_home_page"
 
 # Generators
 # ----------
@@ -52,14 +52,14 @@ app_include_js = "/assets/plugin_manager/js/plugin_manager.js"
 # Installation
 # ------------
 
-# before_install = "bench_manager.install.before_install"
-# after_install = "bench_manager.install.after_install"
+# before_install = "plugin_manager.install.before_install"
+# after_install = "plugin_manager.install.after_install"
 
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "bench_manager.notifications.get_notification_config"
+# notification_config = "plugin_manager.notifications.get_notification_config"
 
 # Permissions
 # -----------
@@ -90,30 +90,30 @@ app_include_js = "/assets/plugin_manager/js/plugin_manager.js"
 
 # scheduler_events = {
 # 	"all": [
-# 		"bench_manager.tasks.all"
+# 		"plugin_manager.tasks.all"
 # 	],
 # 	"daily": [
-# 		"bench_manager.tasks.daily"
+# 		"plugin_manager.tasks.daily"
 # 	],
 # 	"hourly": [
-# 		"bench_manager.tasks.hourly"
+# 		"plugin_manager.tasks.hourly"
 # 	],
 # 	"weekly": [
-# 		"bench_manager.tasks.weekly"
+# 		"plugin_manager.tasks.weekly"
 # 	]
 # 	"monthly": [
-# 		"bench_manager.tasks.monthly"
+# 		"plugin_manager.tasks.monthly"
 # 	]
 # }
 
 # Testing
 # -------
 
-# before_tests = "bench_manager.install.before_tests"
+# before_tests = "plugin_manager.install.before_tests"
 
 # Overriding Whitelisted Methods
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "bench_manager.event.get_events"
+# 	"frappe.desk.doctype.event.event.get_events": "plugin_manager.event.get_events"
 # }

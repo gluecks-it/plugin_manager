@@ -326,7 +326,7 @@
  "max_attachments": 0, 
  "modified": "2017-08-31 15:57:37.805893", 
  "modified_by": "Administrator", 
- "module": "Bench Manager", 
+ "module": "Plugin Manager", 
  "name": "Site Backup", 
  "name_case": "", 
  "owner": "Administrator", 

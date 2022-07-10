@@ -1,0 +1,21 @@
+{
+ "cards": [],
+ "charts": [
+  {
+   "chart": "",
+   "width": "Half"
+  }
+ ],
+ "creation": "2022-07-10 04:37:01.662452",
+ "dashboard_name": "Plugin Manager",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2022-07-10 04:37:01.662452",
+ "modified_by": "demo@erpnext.com",
+ "module": "Plugin Manager",
+ "name": "Plugin Manager",
+ "owner": "demo@erpnext.com"
+}

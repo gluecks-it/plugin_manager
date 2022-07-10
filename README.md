@@ -31,7 +31,7 @@ In frappe-bench directory execute:
 $ bench update
 ```
 
-## [Wiki](https://github.com/frappe/bench_manager/wiki)
+## [Wiki](https://github.com/frappe/plugin_manager/wiki)
 
 ## Features
 
@@ -99,9 +99,15 @@ There are 5 main doctypes associated with this app.
 - The status of the command can be one of 3 types (Success, Failed or Ongoing)
 - Finally the console text field displays the log of the command.
 
-### 5. App
+### 5. Plugin/Apps
 
 - This doctype shows a list of all installed apps in the current bench instance, and their git information!
+
+## ToDos
+
+- Function in install Button
+- Clean and/or optimize the Code?
+- Find all ERPNextapps ;)
 
 #### License
 

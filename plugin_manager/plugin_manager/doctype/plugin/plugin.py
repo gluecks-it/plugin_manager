@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (c) 2017, Frappé and contributors
+# Copyright (c) 2017, Frpluginé and contributors
 # For license information, please see license.txt
 
 
@@ -17,7 +17,7 @@ from plugin_manager.plugin_manager.utils import (
 from frappe.model.document import Document
 
 
-class App(Document):
+class Plugin(Document):
 	app_info_fields = [
 		"app_title",
 		"app_description",
@@ -31,24 +31,24 @@ class App(Document):
 	def validate(self):
 		if self.get("__islocal"):
 			if self.developer_flag == 0:
-				frappe.throw("Creation of new apps is not supported at the moment!")
+				frappe.throw("Creation of new plugins is not supported at the moment!")
 			self.developer_flag = 0
 			app_data_path = os.path.join(
 				"..",
-				"apps",
+				"plugins",
 				self.app_name,
 				"{app_name}.egg-info".format(app_name=self.app_name),
 				"PKG-INFO",
 			)
 			while not os.path.isfile(app_data_path):
 				time.sleep(2)
-			self.update_app_details()
+			self.update_plugin_details()
 		else:
 			if self.developer_flag == 0:
-				self.update_app_details()
+				self.update_plugin_details()
 
 	def onload(self):
-		self.update_app_details()
+		self.update_plugin_details()
 
 	def get_attr(self, varname):
 		return getattr(self, varname)
@@ -63,23 +63,23 @@ class App(Document):
 		if self.developer_flag == 0:
 			frappe.throw("Not allowed!")
 		else:
-			apps_file = "apps.txt"
-			with open(apps_file, "r") as f:
-				apps = f.readlines()
+			plugins_file = "plugins.txt"
+			with open(plugins_file, "r") as f:
+				plugins = f.readlines()
 			try:
-				apps.remove(self.app_name)
+				plugins.remove(self.app_name)
 			except:
 				try:
-					apps.remove(self.app_name + "\n")
+					plugins.remove(self.app_name + "\n")
 				except:
 					pass
-			os.remove(apps_file)
-			with open(apps_file, "w") as f:
-				f.writelines(apps)
+			os.remove(plugins_file)
+			with open(plugins_file, "w") as f:
+				f.writelines(plugins)
 			if self.app_name != "":
 				check_output(shlex.split("rm -r ../apps/{app_name}".format(app_name=self.app_name)))
 
-	def update_app_details(self):
+	def update_plugin_details(self):
 		pkg_info_file = os.path.join(
 			"..",
 			"apps",
@@ -120,9 +120,9 @@ class App(Document):
 				self.is_git_repo = False
 		else:
 			frappe.throw(
-				"Hey developer, the app you're trying to create an \
+				"Hey developer, the plugin you're trying to create an \
 				instance of doesn't actually exist. You could consider setting \
-				developer flag to 0 to actually create the app"
+				developer flag to 0 to actually create the plugin"
 			)
 
 	@frappe.whitelist()
@@ -155,7 +155,7 @@ class App(Document):
 				'git commit -m "{commit_msg}"'.format(commit_msg=commit_msg),
 			],
 			"stash": ["git add .", "git stash"],
-			"apply-stash": ["git stash apply"],
+			"pluginly-stash": ["git stash pluginly"],
 		}
 		frappe.enqueue(
 			"plugin_manager.plugin_manager.utils.run_command",

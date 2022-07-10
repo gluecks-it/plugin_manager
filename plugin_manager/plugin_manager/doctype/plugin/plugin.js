@@ -1,7 +1,7 @@
 // Copyright (c) 2017, Frappé and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on('App', {
+frappe.ui.form.on('Plugin', {
 	onload: function(frm) {
 		if (frm.doc.__islocal != 1) frm.save();
 		frappe.realtime.on("Bench-Manager:reload-page", () => frm.reload_doc());
@@ -55,7 +55,7 @@ frappe.ui.form.on('App', {
 					caller: "stash"
 				});
 			});
-			frm.add_custom_button(__('Apply Stash'), function(){
+			frm.add_custom_button(__('Pluginly Stash'), function(){
 				let key = frappe.datetime.get_datetime_as_string();
 				console_dialog(key);
 				frm.call("console_command", {
@@ -65,7 +65,7 @@ frappe.ui.form.on('App', {
 			});
 			frm.add_custom_button(__('Pull & Rebase'), function(){
 				frappe.call({
-					method: 'plugin_manager.plugin_manager.doctype.app.app.get_remotes',
+					method: 'plugin_manager.plugin_manager.doctype.app.plugin.get_remotes',
 					args: {
 						docname: frm.doc.name,
 					},
@@ -93,7 +93,7 @@ frappe.ui.form.on('App', {
 			});
 			frm.add_custom_button(__('Track Remote'), function(){
 				frappe.call({
-					method: 'plugin_manager.plugin_manager.doctype.app.app.get_remotes',
+					method: 'plugin_manager.plugin_manager.doctype.app.plugin.get_remotes',
 					args: {
 						docname: frm.doc.name,
 					},
@@ -124,7 +124,7 @@ frappe.ui.form.on('App', {
 			});
 			frm.add_custom_button(__('Switch Branch'), function(){
 				frappe.call({
-					method: 'plugin_manager.plugin_manager.doctype.app.app.get_branches',
+					method: 'plugin_manager.plugin_manager.doctype.app.plugin.get_branches',
 					args: {
 						doctype: frm.doctype,
 						docname: frm.doc.name,
@@ -178,7 +178,7 @@ frappe.ui.form.on('App', {
 			});
 			frm.add_custom_button(__('Delete Branch'), function(){
 				frappe.call({
-					method: 'plugin_manager.plugin_manager.doctype.app.app.get_branches',
+					method: 'plugin_manager.plugin_manager.doctype.app.plugin.get_branches',
 					args: {
 						doctype: frm.doctype,
 						docname: frm.doc.name,

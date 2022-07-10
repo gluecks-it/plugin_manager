@@ -106,7 +106,7 @@ def _refresh(doctype, docname, commands):
 @frappe.whitelist()
 def verify_whitelisted_call():
 	if "plugin_manager" not in frappe.get_installed_apps():
-		raise ValueError("This site does not have bench manager installed.")
+		raise ValueError("This site does not have plugin manager installed.")
 
 
 def safe_decode(string, encoding="utf-8"):
