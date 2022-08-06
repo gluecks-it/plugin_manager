@@ -34,6 +34,15 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Command History",
+   "link_to": "Bench Manager Command",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Installations",
    "link_to": "Bench Settings",
    "link_type": "DocType",
@@ -62,16 +71,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Commands",
-   "link_to": "Bench Manager Command",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Internet",
+   "label": "Online",
    "link_to": "Bench Settings",
    "link_type": "DocType",
    "onboard": 0,
@@ -80,7 +80,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Applist",
+   "label": "List of Apps",
    "link_to": "applist",
    "link_type": "Page",
    "onboard": 0,
@@ -97,7 +97,7 @@
    "type": "Link"
   }
  ],
- "modified": "2022-07-10 06:53:22.235208",
+ "modified": "2022-08-06 14:16:38.570890",
  "modified_by": "Administrator",
  "module": "Plugin Manager",
  "name": "Plugin Manager",

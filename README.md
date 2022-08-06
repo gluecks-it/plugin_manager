@@ -41,6 +41,7 @@ $ bench update
 - Install/Uninstall apps on your site
 - Restore Backups on either existing sites or new sites
 - Create new apps and sites
+- Download and install Apps from online repositorys **!!! Important only as user Administrator !!!**
 
 #### App Catalogue
 
@@ -105,9 +106,12 @@ There are 5 main doctypes associated with this app.
 
 ## ToDos
 
-- Function in install Button
+- ~~Function in install Button~~
+- Discover Apps and mark installed apps as installed
+- Mark version for the currently installed app
 - Clean and/or optimize the Code?
 - Find all ERPNextapps ;)
+- ....
 
 #### License
 

@@ -18,9 +18,9 @@ HelpPages = Class.extend({
 				document.getElementById("helpsites").innerHTML = "";
 				const res = JSON.parse(this.responseText);
 				res.helpsites.forEach(element => {
-					document.getElementById("helpsites").innerHTML = document.getElementById("helpsites").innerHTML +
-					'    <div class="col"><div class="card mb-3"><div class="card-body"><h5 class="card-title">' + element.name + '</h5>' +
-					'<p class="card-text"><ul><li>' + (element.giturl?element.giturl:"") + '</li><li>' + (element.weburl?element.weburl:"") + '</li></ul></p><a href="#" class="btn btn-primary">Install</a>' +
+					document.getElementById("helpsites").innerHTML += '<div class="col"><div class="card mb-3"><div class="card-body"><h5 class="card-title">' + element.name + '</h5>' +
+					'<p class="card-text"><ul class="text-left">' + (element.giturl? "<li>Git: <a href='"+element.giturl +"' target='_blank'>" + element.giturl + "</a></li>":"") + 
+					(element.weburl?"<li>Web: <a href='"+element.weburl +"' target='_blank'>" + element.weburl + "</a></li>":"") + '</ul></p>'
 					'</div></div></div>';
 				});
 			}

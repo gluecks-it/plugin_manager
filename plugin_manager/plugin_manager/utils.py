@@ -115,3 +115,13 @@ def safe_decode(string, encoding="utf-8"):
 	except Exception:
 		pass
 	return string
+
+@frappe.whitelist()
+def get_installable_apps(doctype, docname):
+	verify_whitelisted_call()
+	app_list_file = "apps.txt"
+	with open(app_list_file, "r") as f:
+		apps = f.read().split("\n")
+	installed_apps = frappe.get_doc(doctype, docname).app_list.split("\n")
+	installable_apps = set(apps) - set(installed_apps)
+	return [x for x in installable_apps]

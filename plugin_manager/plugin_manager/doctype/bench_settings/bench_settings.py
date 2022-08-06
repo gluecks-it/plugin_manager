@@ -77,18 +77,18 @@ class BenchSettings(Document):
 		).strip("\n")
 
 	@frappe.whitelist()
-	def console_command(self, key, caller, app_name=None, branch_name=None):
+	def console_command(self, key, caller, app_name=None, branch_name=None, git_url=None):
 		commands = {
 			"bench_update": ["bench update"],
 			"switch_branch": [""],
-			"get-app": ["bench get-app {app_name}".format(app_name=app_name)],
+			"get-app": ["bench get-app {git_url} --branch {branch_name}".format(app_name=app_name, branch_name=branch_name, git_url=git_url)],
 		}
 		frappe.enqueue(
 			"plugin_manager.plugin_manager.utils.run_command",
 			commands=commands[caller],
-			doctype=self.doctype,
+			doctype="BenchSettings",
 			key=key,
-			docname=self.name,
+			docname="BenchSettings",
 		)
 
 
@@ -283,6 +283,9 @@ def get_time(date_time_hash):
 def get_hash(date_time_hash):
 	return date_time_hash.split("_")[2]
 
+@frappe.whitelist()
+def console_command(self, key, caller, app_name=None, branch_name=None, git_url=None):
+	BenchSettings.console_command(self, key, caller, app_name, branch_name, git_url)
 
 @frappe.whitelist()
 def sync_all(in_background=False):
