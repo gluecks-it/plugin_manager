@@ -35,7 +35,7 @@ class Plugin(Document):
 			self.developer_flag = 0
 			app_data_path = os.path.join(
 				"..",
-				"plugins",
+				"apps",
 				self.app_name,
 				"{app_name}.egg-info".format(app_name=self.app_name),
 				"PKG-INFO",
@@ -171,9 +171,8 @@ class Plugin(Document):
 def get_branches(doctype, docname, current_branch):
 	verify_whitelisted_call()
 	app_path = os.path.join("..", "apps", docname)  #'../apps/'+docname
-	branches = (check_output("git branch".split(), cwd=app_path)).split()
-	branches.remove("*")
-	branches.remove(current_branch)
+	branches = safe_decode(check_output(shlex.split("git branch"), cwd=app_path)).strip("\n").split("\n")
+	branches.remove("* " + current_branch)
 	return branches
 
 

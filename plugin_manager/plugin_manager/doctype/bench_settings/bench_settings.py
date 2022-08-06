@@ -118,16 +118,18 @@ def sync_sites():
 def sync_apps():
 	verify_whitelisted_call()
 	app_dirs = update_app_list()
-	app_entries = [x["name"] for x in frappe.get_all("App")]
+	app_entries = [x["name"] for x in frappe.get_all("Plugin")]
 	create_apps = list(set(app_dirs) - set(app_entries))
 	delete_apps = list(set(app_entries) - set(app_dirs))
+	update_apps = list(set(app_entries) - set(delete_apps) - set(create_apps))
 	create_apps = [app for app in create_apps if app != ""]
 	delete_apps = [app for app in delete_apps if app != ""]
+	update_apps = [app for app in update_apps if app != ""]
 
 	for app in create_apps:
 		doc = frappe.get_doc(
 			{
-				"doctype": "App",
+				"doctype": "Plugin",
 				"app_name": app,
 				"app_description": "lorem ipsum",
 				"app_publisher": "lorem ipsum",
@@ -138,11 +140,17 @@ def sync_apps():
 		doc.insert()
 		frappe.db.commit()
 
+
 	for app in delete_apps:
-		doc = frappe.get_doc("App", app)
+		doc = frappe.get_doc("Plugin", app)
 		doc.developer_flag = 1
 		doc.save()
 		doc.delete()
+		frappe.db.commit()
+
+	for app in update_apps:
+		doc = frappe.get_doc("Plugin", app)
+		doc.save()
 		frappe.db.commit()
 	# frappe.msgprint('Sync apps completed')
 
